@@ -64,6 +64,16 @@
         rev = [[dict objectForKey:@"rev"] retain];
         revision = [[dict objectForKey:@"revision"] longLongValue];
         isDeleted = [[dict objectForKey:@"is_deleted"] boolValue];
+        
+        if ([dict objectForKey:@"video_info"]) {
+            NSDictionary * videoInfoDict =  [dict objectForKey:@"video_info"];
+            
+            NSNumber * duration = [videoInfoDict objectForKey:@"duration"];
+            if (duration && duration != (id)[NSNull null]) {
+                videoDuration = [duration intValue];
+            }
+        }
+        
     }
     return self;
 }
@@ -96,6 +106,7 @@
 @synthesize rev;
 @synthesize revision;
 @synthesize isDeleted;
+@synthesize videoDuration;
 
 - (BOOL)isEqual:(id)object {
     if (object == self) return YES;
@@ -129,6 +140,7 @@
         rev = [[coder decodeObjectForKey:@"rev"] retain];
         revision = [coder decodeInt64ForKey:@"revision"];
         isDeleted = [coder decodeBoolForKey:@"isDeleted"];
+        videoDuration = [coder decodeIntegerForKey:@"videoDuration"];
     }
     return self;
 }
@@ -148,6 +160,7 @@
     [coder encodeObject:rev forKey:@"rev"];
     [coder encodeInt64:revision forKey:@"revision"];
     [coder encodeBool:isDeleted forKey:@"isDeleted"];
+    [coder encodeInteger:videoDuration forKey:@"videoDuration"];
 }
 
 @end

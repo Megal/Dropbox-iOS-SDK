@@ -43,5 +43,6 @@
 @property (nonatomic, readonly) NSString* rev;
 @property (nonatomic, readonly) BOOL isDeleted;
 @property (nonatomic, readonly) NSString* filename;
+@property (nonatomic, readonly) NSInteger videoDuration;
 
 @end

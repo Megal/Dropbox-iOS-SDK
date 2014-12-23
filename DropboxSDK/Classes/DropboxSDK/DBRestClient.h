@@ -42,6 +42,9 @@
 /* This will load the metadata of a file at a given rev */
 - (void)loadMetadata:(NSString *)path atRev:(NSString *)rev;
 
+/* This will load the metadata with custom params, this if non-official method */
+- (void)loadMetadata:(NSString*)path withParams:(NSDictionary *)params;
+
 /* Loads a list of files (represented as DBDeltaEntry objects) that have changed since the cursor was generated */
 - (void)loadDelta:(NSString *)cursor;
 
