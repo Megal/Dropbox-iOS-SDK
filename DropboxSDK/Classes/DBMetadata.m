@@ -69,7 +69,7 @@
             NSDictionary * videoInfoDict =  [dict objectForKey:@"video_info"];
             
             NSNumber * duration = [videoInfoDict objectForKey:@"duration"];
-            if (duration && duration != (id)[NSNull null]) {
+            if (duration && duration != (id)[NSNull null] && [duration isKindOfClass:[NSNumber class]]) {
                 videoDuration = [duration intValue];
             }
         }
@@ -140,7 +140,10 @@
         rev = [[coder decodeObjectForKey:@"rev"] retain];
         revision = [coder decodeInt64ForKey:@"revision"];
         isDeleted = [coder decodeBoolForKey:@"isDeleted"];
-        videoDuration = [coder decodeIntegerForKey:@"videoDuration"];
+		if( [coder containsValueForKey:@"videoDuration"] )
+		{
+			videoDuration = [coder decodeIntegerForKey:@"videoDuration"];
+		}
     }
     return self;
 }
