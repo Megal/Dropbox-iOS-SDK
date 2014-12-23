@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = "Dropbox-iOS-SDK"
-  s.version      = "1.3.13"
+  s.version      = "1.3.13b"
   s.summary      = "The Dropbox SDK for iOS."
   s.homepage     = "https://www.dropbox.com/developers/reference/sdk"
   s.author       = 'Dropbox'
-  s.source       = { :http => "https://www.dropbox.com/static/developers/dropbox-ios-sdk-1.3.13.zip" }
+  s.source       = { :http => "https://github.com/Megal/Dropbox-iOS-SDK.git" }
   s.platform     = :ios
 
   s.source_files = 'DropboxSDK.framework/Headers/*.h'
